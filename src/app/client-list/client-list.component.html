@@ -1,0 +1,53 @@
+<div [formGroup]="filterForm">
+  <div class="row">
+    <div class="col-6">
+      <label for="name">Nome:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        formControlName="filterName"
+      />
+    </div>
+    <div class="col-2">
+      <label for="cpf">CPF:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="cpf"
+        formControlName="filterCpf"
+      />
+    </div>
+    <div class="col-2">
+      <label for="state">Estado:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="state"
+        formControlName="filterState"
+      />
+    </div>
+  </div>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Empresa</th>
+      <th scope="col">Nome</th>
+      <th scope="col">CPF</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      *ngFor="let client of clientList"
+      [routerLink]="['/atualizacao-cadastral', client.id]"
+    >
+      <th scope="row">{{ client.id }}</th>
+      <td>{{ client.name }}</td>
+      <td>{{ client.company }}</td>
+      <td>{{ client.cpf }}</td>
+    </tr>
+  </tbody>
+</table>

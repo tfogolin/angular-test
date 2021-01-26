@@ -8,12 +8,16 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { ClientRegisterComponent } from './client-register/client-register.component';
 import { ClientFormComponent } from './client-form/client-form.component';
+import { ClientListComponent } from './client-list/client-list.component';
+import { ClientEditComponent } from './client-edit/client-edit.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ClientRegisterComponent,
-    ClientFormComponent
+    ClientFormComponent,
+    ClientListComponent,
+    ClientEditComponent
   ],
   imports: [
     BrowserModule,

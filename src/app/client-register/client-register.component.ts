@@ -1,7 +1,8 @@
 import {
   Component, OnInit,
 } from '@angular/core';
-import { ClientFormComponent } from '../client-form/client-form.component'
+
+import { StorageService } from '../storage-service.service'
 
 import {
   FormControl, FormGroup
@@ -15,16 +16,17 @@ import {
 })
 export class ClientRegisterComponent implements OnInit {
 
-  constructor() { }
+  constructor(private storageService: StorageService) { }
 
 
   clientRegisterGroup = new FormGroup({ clientForm: new FormControl('') });
 
   ngOnInit(): void {
-
+    console.log(this.storageService)
   }
 
   onSubmit(): void {
+    this.storageService.addClient(this.clientRegisterGroup.value.clientForm)
     console.log(this.clientRegisterGroup.value)
   }
 

@@ -1,5 +1,7 @@
 import { Component, OnInit, forwardRef } from '@angular/core';
 
+import { Client } from '../client.js'
+
 import {
   FormControl, FormGroup, FormBuilder,
   ControlValueAccessor,
@@ -21,6 +23,7 @@ export class ClientFormComponent implements OnInit, ControlValueAccessor {
 
   constructor(private fb: FormBuilder) { }
   clientFormGroup = this.fb.group({
+    id: [''],
     name: [''],
     rg: [''],
     email: [''],
@@ -44,9 +47,25 @@ export class ClientFormComponent implements OnInit, ControlValueAccessor {
   }
   registerOnTouched(fn: any): void { }
 
-  writeValue(
-    value: {
-    }[]
-  ): void { }
+  writeValue(value: Client): void {
+    this.clientFormGroup = this.fb.group({
+      id: [value.id],
+      name: [value.name],
+      rg: [value.rg],
+      email: [value.email],
+      cpf: [value.cpf],
+      birthdate: [value.birthdate],
+      phone: [value.phone],
+      company: [value.company],
+      street: [value.street],
+      number: [value.number],
+      neighborhood: [value.neighborhood],
+      comp: [value.comp],
+      zip: [value.zip],
+      city: [value.city],
+      state: [value.state],
+
+    });
+  }
 
 }
