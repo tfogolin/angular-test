@@ -1,40 +1,60 @@
-<form>
+<ng-container [formGroup]="clientFormGroup">
   <div class="row">
     <div class="col-6">
       <label for="name">Nome:</label>
-      <input type="text" class="form-control" id="name" />
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        formControlName="name"
+      />
       <div class="form-text error"></div>
     </div>
     <div class="col-2">
       <label for="rg">Rg:</label>
-      <input type="text" class="form-control" id="rg" />
+      <input type="text" class="form-control" id="rg" formControlName="rg" />
       <div class="form-text error"></div>
     </div>
     <div class="col-2">
       <label for="cpf">CPF:</label>
-      <input type="text" class="form-control" id="cpf" />
+      <input type="text" class="form-control" id="cpf" formControlName="cpf" />
       <div class="form-text error"></div>
     </div>
     <div class="col-2">
       <label for="birthdate">Data Nascimento:</label>
-      <input type="text" class="form-control" id="birthdate" />
+      <input
+        type="text"
+        class="form-control"
+        id="birthdate"
+        formControlName="birthdate"
+      />
       <div class="form-text error"></div>
     </div>
   </div>
   <div class="row">
     <div class="col-3">
       <label for="phone">Telefone:</label>
-      <input type="text" class="form-control" id="phone" />
+      <input
+        type="text"
+        class="form-control"
+        id="phone"
+        formControlName="phone"
+      />
       <div class="form-text error"></div>
     </div>
     <div class="col-3">
       <label for="email">Email:</label>
-      <input type="text" class="form-control" id="email" />
+      <input
+        type="text"
+        class="form-control"
+        id="email"
+        formControlName="email"
+      />
       <div class="form-text error"></div>
     </div>
     <div class="col-3">
-      <label for="cpf">Empresa:</label>
-      <select class="form-control" id="">
+      <label for="company">Empresa:</label>
+      <select class="form-control" id="company" formControlName="company">
         <option value="">Carrefour</option>
       </select>
       <div class="form-text error"></div>
@@ -43,47 +63,67 @@
   <div class="row">
     <div class="col-6">
       <label for="street">Rua:</label>
-      <input type="text" class="form-control" id="street" />
+      <input
+        type="text"
+        class="form-control"
+        id="street"
+        formControlName="street"
+      />
       <div class="form-text error"></div>
     </div>
     <div class="col-3">
       <label for="number">Número:</label>
-      <input type="text" class="form-control" id="number" />
+      <input
+        type="text"
+        class="form-control"
+        id="number"
+        formControlName="number"
+      />
       <div class="form-text error"></div>
     </div>
     <div class="col-3">
-      <label for="neighbor">Bairro:</label>
-      <input type="text" class="form-control" id="neighbor" />
+      <label for="neighborhood">Bairro:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="neighborhood"
+        formControlName="neighborhood"
+      />
       <div class="form-text error"></div>
     </div>
   </div>
   <div class="row">
     <div class="col-3">
       <label for="comp">Complemento:</label>
-      <input type="text" class="form-control" id="comp" />
+      <input
+        type="text"
+        class="form-control"
+        id="comp"
+        formControlName="comp"
+      />
       <div class="form-text error"></div>
     </div>
     <div class="col-3">
       <label for="zip">CEP:</label>
-      <input type="text" class="form-control" id="zip" />
+      <input type="text" class="form-control" id="zip" formControlName="zip" />
       <div class="form-text error"></div>
     </div>
     <div class="col-3">
       <label for="city">Cidade:</label>
-      <input type="text" class="form-control" id="city" />
+      <input
+        type="text"
+        class="form-control"
+        id="city"
+        formControlName="city"
+      />
       <div class="form-text error"></div>
     </div>
     <div class="col-3">
       <label for="state">Estado:</label>
-      <select class="form-control" id="state">
+      <select class="form-control" id="state" formControlName="state">
         <option value=""></option>
       </select>
       <div class="form-text error"></div>
     </div>
   </div>
-  <div class="row">
-    <div class="col-12">
-      <button type="submit" class="btn btn-primary">Cadastrar</button>
-    </div>
-  </div>
-</form>
+</ng-container>

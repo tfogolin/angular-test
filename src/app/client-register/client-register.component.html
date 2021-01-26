@@ -1,2 +1,10 @@
 <h1>Cadastro de clientes</h1>
-<app-client-form></app-client-form>
+<form [formGroup]="clientRegisterGroup" (ngSubmit)="onSubmit()">
+  <app-client-form formControlName="clientForm"></app-client-form>
+  <div class="row">
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary">Cadastrar</button>
+      {{ clientRegisterGroup.value.clientForm.name }}
+    </div>
+  </div>
+</form>
