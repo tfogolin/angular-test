@@ -42,7 +42,7 @@
   </thead>
   <tbody>
     <tr
-      *ngFor="let client of clientList"
+      *ngFor="let client of clientListFiltered"
       [routerLink]="['/atualizacao-cadastral', client.id]"
     >
       <th scope="row">{{ client.id }}</th>

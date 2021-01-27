@@ -5,7 +5,10 @@ import { validateCpf } from '../utils/validateCpf';
 import {
   FormBuilder,
   ControlValueAccessor,
-  NG_VALUE_ACCESSOR, Validators
+  NG_VALUE_ACCESSOR, Validators,
+  NG_VALIDATORS,
+  FormControl,
+
 } from '@angular/forms';
 
 @Component({
@@ -15,6 +18,11 @@ import {
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => ClientFormComponent),
+      multi: true,
+    },
+    {
+      provide: NG_VALIDATORS,
       useExisting: forwardRef(() => ClientFormComponent),
       multi: true,
     }]
@@ -55,6 +63,18 @@ export class ClientFormComponent implements OnInit, ControlValueAccessor {
 
   writeValue(value: Client): void {
     this.setupForm(value);
+  }
+
+  validate(control: FormControl) {
+
+    return this.clientFormGroup.valid ? null : {
+      clientForm: {
+        valid: true,
+      },
+    };
+  }
+  registerOnValidatorChange?(fn: () => void): void {
+
   }
 
 }

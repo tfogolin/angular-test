@@ -26,8 +26,8 @@ export class ClientEditComponent implements OnInit {
       var id = Number(params.get('id'));
 
       this.clientEdit = this.storageService.getClient(id)[0];
-      console.log(this.clientEditGroup.get('clientForm'))
-      console.log(this.clientEditGroup.get('clientForm')?.setValue(this.clientEdit))
+
+      this.clientEditGroup.get('clientForm')?.setValue(this.clientEdit);
 
     });
 
@@ -35,6 +35,8 @@ export class ClientEditComponent implements OnInit {
   }
 
   onSubmit(): void {
+    console.log(this.clientEditGroup.get('clientForm'))
+    return
     this.storageService.updateClient(this.clientEditGroup.value.clientForm)
   }
 

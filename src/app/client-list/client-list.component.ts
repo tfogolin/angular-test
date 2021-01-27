@@ -26,7 +26,7 @@ export class ClientListComponent implements OnInit {
   });
   ngOnInit(): void {
     this.clientList = this.storageService.getAllClients();
-
+    this.clientListFiltered = this.clientList
     this.filterForm.valueChanges.subscribe(val => {
       this.clientListFiltered = this.clientList.filter((client) => {
         return client['name'].includes(val.filterName) && client['cpf'].includes(val.filterCpf) && client['state'].includes(val.filterState)
@@ -37,6 +37,6 @@ export class ClientListComponent implements OnInit {
   }
   deleteClient(event: any, id: number): void {
     event.stopPropagation();
-    this.clientList = this.storageService.deleteClient(id);
+    this.clientListFiltered = this.storageService.deleteClient(id);
   }
 }

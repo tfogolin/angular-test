@@ -1,9 +1,20 @@
-<h1>Dados do cliente</h1>
+<div class="row">
+  <div class="col-12">
+    <h1>Dados do cliente</h1>
+  </div>
+</div>
+
 <form [formGroup]="clientEditGroup" (ngSubmit)="onSubmit()">
   <app-client-form formControlName="clientForm"></app-client-form>
   <div class="row">
     <div class="col-12">
-      <button type="submit" class="btn btn-primary">Cadastrar</button>
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="!clientEditGroup.valid"
+      >
+        Cadastrar
+      </button>
       <button
         type="submit"
         class="btn btn-secondary ml-3"

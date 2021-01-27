@@ -5,6 +5,7 @@ import { ClientListComponent } from './client-list/client-list.component'
 import { ClientEditComponent } from './client-edit/client-edit.component'
 
 const routes: Routes = [
+  { path: '', redirectTo: 'cadastro-de-clientes', pathMatch: 'full' },
   { path: 'cadastro-de-clientes', component: ClientRegisterComponent },
   { path: 'busca-de-clientes', component: ClientListComponent },
   { path: 'atualizacao-cadastral/:id', component: ClientEditComponent },
