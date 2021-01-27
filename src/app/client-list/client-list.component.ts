@@ -35,4 +35,8 @@ export class ClientListComponent implements OnInit {
     });
 
   }
+  deleteClient(event: any, id: number): void {
+    event.stopPropagation();
+    this.clientList = this.storageService.deleteClient(id);
+  }
 }

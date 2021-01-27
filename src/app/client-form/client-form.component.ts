@@ -30,7 +30,7 @@ export class ClientFormComponent implements OnInit, ControlValueAccessor {
   setupForm(value: Client = {} as Client) {
 
     this.clientFormGroup = this.fb.group({
-      id: [value.id, Validators.required],
+      id: [value.id],
       name: [value.name, Validators.required],
       rg: [value.rg, Validators.required],
       email: [value.email, Validators.compose([Validators.required, Validators.email])],

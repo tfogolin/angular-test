@@ -37,6 +37,7 @@
       <th scope="col">Empresa</th>
       <th scope="col">Nome</th>
       <th scope="col">CPF</th>
+      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
@@ -48,6 +49,15 @@
       <td>{{ client.name }}</td>
       <td>{{ client.company }}</td>
       <td>{{ client.cpf }}</td>
+      <td>
+        <button
+          type="button"
+          class="btn btn-default"
+          (click)="deleteClient($event, client.id)"
+        >
+          <i class="fa fa-close"></i>
+        </button>
+      </td>
     </tr>
   </tbody>
 </table>

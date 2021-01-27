@@ -34,7 +34,6 @@ export class StorageService {
   updateClient(updateClient: Client): void {
     let clientData: Array<Client> = JSON.parse(localStorage.getItem('clientData') || '[]');
     clientData = clientData.map((client: Client) => {
-      console.log(client['id'] == updateClient['id'])
       if (client['id'] == updateClient['id']) {
         return client = updateClient;
       } else {
@@ -43,6 +42,14 @@ export class StorageService {
     });
 
     localStorage.setItem('clientData', JSON.stringify(clientData));
+
+  }
+  deleteClient(id: number): Array<Client> {
+    let clientData: Array<Client> = JSON.parse(localStorage.getItem('clientData') || '[]');
+    clientData = clientData.filter((client: Client) => client['id'] != id);
+
+    localStorage.setItem('clientData', JSON.stringify(clientData));
+    return clientData
 
   }
   getAllClients(): Array<Client> {
