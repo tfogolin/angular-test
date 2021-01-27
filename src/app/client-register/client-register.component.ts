@@ -27,7 +27,6 @@ export class ClientRegisterComponent implements OnInit {
 
   onSubmit(): void {
     this.storageService.addClient(this.clientRegisterGroup.value.clientForm)
-    console.log(this.clientRegisterGroup.value)
   }
 
 }

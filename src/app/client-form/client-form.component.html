@@ -55,7 +55,7 @@
     <div class="col-3">
       <label for="company">Empresa:</label>
       <select class="form-control" id="company" formControlName="company">
-        <option value="">Carrefour</option>
+        <option value="Carrefour">Carrefour</option>
       </select>
       <div class="form-text error"></div>
     </div>
@@ -121,9 +121,12 @@
     <div class="col-3">
       <label for="state">Estado:</label>
       <select class="form-control" id="state" formControlName="state">
-        <option value=""></option>
+        <option value="SP">SP</option>
       </select>
       <div class="form-text error"></div>
     </div>
   </div>
+
+  {{ clientFormGroup.value | json }}
+  {{ clientFormGroup.valid | json }}
 </ng-container>

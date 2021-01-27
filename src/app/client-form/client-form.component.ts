@@ -1,11 +1,11 @@
 import { Component, OnInit, forwardRef } from '@angular/core';
 
-import { Client } from '../client.js'
-
+import { Client } from '../client.js';
+import { validateCpf } from '../utils/validateCpf';
 import {
-  FormControl, FormGroup, FormBuilder,
+  FormBuilder,
   ControlValueAccessor,
-  NG_VALUE_ACCESSOR
+  NG_VALUE_ACCESSOR, Validators
 } from '@angular/forms';
 
 @Component({
@@ -22,25 +22,31 @@ import {
 export class ClientFormComponent implements OnInit, ControlValueAccessor {
 
   constructor(private fb: FormBuilder) { }
-  clientFormGroup = this.fb.group({
-    id: [''],
-    name: [''],
-    rg: [''],
-    email: [''],
-    cpf: [''],
-    birthdate: [''],
-    phone: [''],
-    company: [''],
-    street: [''],
-    number: ['dsf'],
-    neighborhood: [''],
-    comp: [''],
-    zip: [''],
-    city: [''],
-    state: [''],
+  clientFormGroup = this.fb.group({});
 
-  });
   ngOnInit(): void {
+    this.setupForm();
+  }
+  setupForm(value: Client = {} as Client) {
+
+    this.clientFormGroup = this.fb.group({
+      id: [value.id, Validators.required],
+      name: [value.name, Validators.required],
+      rg: [value.rg, Validators.required],
+      email: [value.email, Validators.compose([Validators.required, Validators.email])],
+      cpf: [value.cpf, Validators.compose([Validators.required, validateCpf])],
+      birthdate: [value.birthdate, Validators.required],
+      phone: [value.phone, Validators.required],
+      company: [value.company, Validators.required],
+      street: [value.street, Validators.required],
+      number: [value.number, Validators.required],
+      neighborhood: [value.neighborhood, Validators.required],
+      comp: [value.comp, Validators.required],
+      zip: [value.zip, Validators.required],
+      city: [value.city, Validators.required],
+      state: [value.state, Validators.required],
+
+    });
   }
   registerOnChange(fn: any): void {
     this.clientFormGroup.valueChanges.subscribe(fn);
@@ -48,24 +54,7 @@ export class ClientFormComponent implements OnInit, ControlValueAccessor {
   registerOnTouched(fn: any): void { }
 
   writeValue(value: Client): void {
-    this.clientFormGroup = this.fb.group({
-      id: [value.id],
-      name: [value.name],
-      rg: [value.rg],
-      email: [value.email],
-      cpf: [value.cpf],
-      birthdate: [value.birthdate],
-      phone: [value.phone],
-      company: [value.company],
-      street: [value.street],
-      number: [value.number],
-      neighborhood: [value.neighborhood],
-      comp: [value.comp],
-      zip: [value.zip],
-      city: [value.city],
-      state: [value.state],
-
-    });
+    this.setupForm(value);
   }
 
 }
